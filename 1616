@@ -1,0 +1,45 @@
+#include<bits/stdc++.h> 
+using namespace std;
+
+int main()
+{
+	int ih=1080*24*60;//原分钟数 
+	int nh=ih/55;//在新世界28276小时 
+	int rmin=ih%55;//零20分钟 
+	int nd=nh/40;//在新世界706天 
+	int rh=nd%40;//零26小时 
+	int nmon=nd/10;//在新世界70个月 
+	int rd=nd%10;//零6天 
+	int ny=nmon/10;//在新世界7年 
+	int rmon=nmon%10;//整 
+	//在新世界ny(7)年rmon(0)月rd(6)天rh(26)小时零rmin(20)分钟
+	int y=580,mon=3,d=7,h=15,min=0;
+	if(min+rmin>=55)
+	{
+		min=rmin+min-55;
+		h++;
+	}
+	else min+=rmin;
+	if(h+rh>=40)
+	{
+		h=h+rh-40;
+		d++;
+	}
+	else h+=rh;
+	if(d+rd>10)
+	{
+		d=d+rd-10;
+		mon++;
+	}
+	else d+=rd;
+	if(mon+rmon>10)
+	{
+		mon=mon+rmon-10;
+		y++;
+	}
+	else mon+=rmon;
+	y+=ny;
+	cout<<y<<" "<<mon<<" "<<d<<" ";//587 4 4
+	
+	return 0;
+}
